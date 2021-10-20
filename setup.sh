@@ -1,8 +1,9 @@
+#!/bin/bash
 # EC2 Ubuntu
 echo '>>> JDK 설치'
 sudo apt update
-sudo apt install openjdk-8-jdk -y && java -version
-sudo apt install ca-certificates
+sudo apt install openjdk-11-jdk -y && java -version
+# sudo apt install ca-certificates
 echo ''
 
 echo '>>> Jenkins Setup'
