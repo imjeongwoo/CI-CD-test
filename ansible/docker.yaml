@@ -1,0 +1,27 @@
+- name: Build and Push Docker Image 
+  hosts: ansible_host
+  gather_facts: false
+
+  tasks:
+  - name: Build Docker Image
+    command: docker image build -t kkkjeongwoo/mywebapp .
+  - name: Login to Docker Hub
+    command: docker login
+  - name: Push Image to Docker Hub
+    command: docker push kkkjeongwoo/mywebapp
+  - name: Remove Local Image
+    command: docker image rm kkkjeongwoo/mywebapp tomcat:9-jdk11
+
+- name: Run Docker Container 
+  hosts: docker_host
+  gather_facts: false
+
+  tasks:
+  - name: Stop Existed Container
+    command: docker stop tomcat-mywebapp
+    ignore_errors: true # 실행중인 컨테이너가 없으면 무시하고 넘어감
+  - name: Remove Existed Container
+    command: docker rm tomcat-mywebapp
+    ignore_errors: true # 실행중인 컨테이너가 없으면 무시하고 넘어감
+  - name: Run Container
+    command: docker run -d --name tomcat-mywebapp -p 8080:8080 kkkjeongwoo/mywebapp
