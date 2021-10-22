@@ -1,0 +1,7 @@
+- name: Create & Update Deployments and Service Obj for K8s
+  hosts: control-plane
+  gather_facts: no
+
+  tasks:
+  - name: Create & Update Deployments and Service Obj for K8s
+    command: kubectl apply -f myweb/
