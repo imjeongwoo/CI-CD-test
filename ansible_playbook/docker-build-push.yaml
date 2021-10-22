@@ -1,0 +1,13 @@
+- name: Build and Push Docker Image 
+  hosts: ansible_host
+  gather_facts: false
+
+  tasks:
+  - name: Build Docker Image
+    command: docker image build -t kkkjeongwoo/mywebapp .
+  - name: Login to Docker Hub
+    command: docker login
+  - name: Push Image to Docker Hub
+    command: docker push kkkjeongwoo/mywebapp
+  - name: Remove Local Image
+    command: docker image rm kkkjeongwoo/mywebapp tomcat:9-jdk11
