@@ -1,9 +1,5 @@
-## Jenkins Server
-```
-./setup.sh
-```
+# Workflow
 
-## Tomcat Server
-```
-./tomcat_server.sh
-```
+<p align="center">
+<img src="workflow.png">
+</p>
