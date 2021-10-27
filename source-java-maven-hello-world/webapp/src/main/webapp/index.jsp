@@ -1,3 +1,2 @@
-<h1> 쿠버네티스 자동배포 </h1>
-<h1> Version 2.0.0 </h1>
+<h1> Test Server </h1>
 
